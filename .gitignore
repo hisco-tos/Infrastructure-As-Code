@@ -1,0 +1,8 @@
+# Local .env (do not commit credentials)
+.env
+
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
