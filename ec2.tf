@@ -8,3 +8,20 @@ resource "aws_instance" "first_instance" {
   }
 }
 
+
+
+#s3 bucket resource
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-terraform-bucket-123456"
+
+  tags = {
+    Name        = "MyTerraformBucket"
+    Environment = "Dev"
+  }
+}
+
+resource "aws_s3_bucket_acl" "my_bucket_acl" {
+  bucket = aws_s3_bucket.my_bucket.id
+  acl    = "private"
+}
